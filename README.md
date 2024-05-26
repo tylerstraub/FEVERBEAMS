@@ -152,13 +152,6 @@ The design of FEVERBEAMS focuses on modularity and flexibility, enabling dynamic
 6. **Random Initialization**:
    - Some effects utilize arrays of random positions (`ranX` and `ranY`). These arrays are initialized in the `setup()` function to ensure a consistent random distribution across effects.
 
-## License
-FEVERBEAMS is released under the GPL-3.0 License. See [LICENSE](LICENSE) for details.
-
-## Credits
-- **Original Author**: [bodgedbutworks](https://github.com/bodgedbutworks) for the foundational code in Blaize_V3.
-- **Contributor**: [Strauberry](https://github.com/tylerstraub/)
-
 ---
 
 Feel free to explore, modify, and create with FEVERBEAMS. Happy beaming!
