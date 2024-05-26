@@ -7,6 +7,7 @@ int[] colors = {
   color(255, 0, 255),
   color(255, 255, 255) // White
 };
+
 int currentColorIndex = 0;
 int multiColorIndex = 0; // Index for multiColor colors
 
@@ -62,7 +63,7 @@ void keyPressed() {
       }
     }
   } else {
-    // New key bindings for presetSize and presetSpeed
+    // New key bindings for presetSize, presetSpeed, shadeAmount, and presetStrobing
     if (key == 'W' || key == 'w') {
       presetSize += 10;
       println("Current size: " + presetSize);
@@ -78,6 +79,22 @@ void keyPressed() {
     } else if (key == 'D' || key == 'd') {
       presetSpeed += 10;
       println("Current speed: " + presetSpeed);
+      actionTaken = true;
+    } else if (key == 'J' || key == 'j') {
+      shadeAmount -= 10;
+      println("Current shade amount: " + shadeAmount);
+      actionTaken = true;
+    } else if (key == 'L' || key == 'l') {
+      shadeAmount += 10;
+      println("Current shade amount: " + shadeAmount);
+      actionTaken = true;
+    } else if (key == 'I' || key == 'i') {
+      presetStrobing += 10;
+      println("Current strobing: " + presetStrobing);
+      actionTaken = true;
+    } else if (key == 'K' || key == 'k') {
+      presetStrobing -= 10;
+      println("Current strobing: " + presetStrobing);
       actionTaken = true;
     }
   }

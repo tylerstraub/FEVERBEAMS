@@ -294,7 +294,7 @@ public void effect15() {
           map(r, innerRadius, outerRadius, 255, 0),
           map(sin(angle + v), -1, 1, 0, 255),
           presetBrightness * 255 / 100
-        );
+          );
       } else {
         fill(presetColor, presetBrightness * 255 / 100);
       }
