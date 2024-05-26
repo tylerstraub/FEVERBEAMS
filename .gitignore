@@ -8,3 +8,8 @@ application.windows32
 application.windows64
 application.macosx
 out
+*.dll
+# Ignore specific directories under windows-amd64
+windows-amd64/source/
+windows-amd64/lib/
+windows-amd64/java/
