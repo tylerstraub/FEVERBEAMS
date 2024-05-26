@@ -1,10 +1,10 @@
 int[] colors = {
-  color(255, 0, 0), 
-  color(0, 255, 0), 
-  color(0, 0, 255), 
-  color(255, 255, 0), 
-  color(0, 255, 255), 
-  color(255, 0, 255), 
+  color(255, 0, 0),
+  color(0, 255, 0),
+  color(0, 0, 255),
+  color(255, 255, 0),
+  color(0, 255, 255),
+  color(255, 0, 255),
   color(255, 255, 255) // White
 };
 int currentColorIndex = 0;

@@ -279,29 +279,29 @@ public void effect15() {
   float angleStep = TWO_PI / 20;
   float maxRadius = 200;
   float minRadius = 50;
-  
+
   for (float angle = 0; angle < TWO_PI; angle += angleStep) {
     float innerRadius = minRadius + sin(v + angle) * 20;
     float outerRadius = maxRadius + cos(v + angle) * 20;
-    
+
     for (float r = innerRadius; r < outerRadius; r += 10) {
       float x = r * cos(angle);
       float y = r * sin(angle);
-      
+
       if (multiColor) {
         fill(
-          map(r, innerRadius, outerRadius, 0, 255), 
-          map(r, innerRadius, outerRadius, 255, 0), 
+          map(r, innerRadius, outerRadius, 0, 255),
+          map(r, innerRadius, outerRadius, 255, 0),
           map(sin(angle + v), -1, 1, 0, 255)
-        );
+          );
       } else {
         fill(map(r, innerRadius, outerRadius, 0, 255), 255 - map(r, innerRadius, outerRadius, 0, 255), 150);
       }
-      
+
       ellipse(x, y, 10, 10);
     }
   }
-  
+
   v += float(presetSpeed) / 1000;
 }
 
@@ -495,22 +495,22 @@ public void effect26() {
   for (int r = 0; r <= 3; r++) {
     pushMatrix();
     switch (r) {
-      case 0:
-        translate(width / 4, height / 4);
-        rotate(v);
-        break;
-      case 1:
-        translate(3 * width / 4, height / 4);
-        rotate(-v);
-        break;
-      case 2:
-        translate(width / 4, 3 * height / 4);
-        rotate(-v);
-        break;
-      case 3:
-        translate(3 * width / 4, 3 * height / 4);
-        rotate(v);
-        break;
+    case 0:
+      translate(width / 4, height / 4);
+      rotate(v);
+      break;
+    case 1:
+      translate(3 * width / 4, height / 4);
+      rotate(-v);
+      break;
+    case 2:
+      translate(width / 4, 3 * height / 4);
+      rotate(-v);
+      break;
+    case 3:
+      translate(3 * width / 4, 3 * height / 4);
+      rotate(v);
+      break;
     }
     for (float i = 0; i < 18; i++) {
       if (multiColor && i % 2 == 0) {
@@ -608,27 +608,27 @@ public void effect31() {
     final float BLINKSPD = 3.0;
     pushMatrix();
     switch (b) {
-      case 0:
-        translate(14 * width / 40, 4 * height / 12);
-        rotate(v);
-        if (sin(BLINKSPD * v) > THRESH) {
-          BRIGHT = map(sin(BLINKSPD * v), THRESH, 1.0, 100, 0);
-        }
-        break;
-      case 1:
-        translate(26 * width / 40, 4 * height / 12);
-        rotate(v);
-        if (sin(BLINKSPD * v + 2 * PI / 3) > THRESH) {
-          BRIGHT = map(sin(BLINKSPD * v + 2 * PI / 3), THRESH, 1.0, 100, 0);
-        }
-        break;
-      case 2:
-        translate(width / 2, 8 * height / 12);
-        rotate(v);
-        if (sin(BLINKSPD * v + 4 * PI / 3) > THRESH) {
-          BRIGHT = map(sin(BLINKSPD * v + 4 * PI / 3), THRESH, 1.0, 100, 0);
-        }
-        break;
+    case 0:
+      translate(14 * width / 40, 4 * height / 12);
+      rotate(v);
+      if (sin(BLINKSPD * v) > THRESH) {
+        BRIGHT = map(sin(BLINKSPD * v), THRESH, 1.0, 100, 0);
+      }
+      break;
+    case 1:
+      translate(26 * width / 40, 4 * height / 12);
+      rotate(v);
+      if (sin(BLINKSPD * v + 2 * PI / 3) > THRESH) {
+        BRIGHT = map(sin(BLINKSPD * v + 2 * PI / 3), THRESH, 1.0, 100, 0);
+      }
+      break;
+    case 2:
+      translate(width / 2, 8 * height / 12);
+      rotate(v);
+      if (sin(BLINKSPD * v + 4 * PI / 3) > THRESH) {
+        BRIGHT = map(sin(BLINKSPD * v + 4 * PI / 3), THRESH, 1.0, 100, 0);
+      }
+      break;
     }
 
     for (int e = 0; e <= 4; e++) {
