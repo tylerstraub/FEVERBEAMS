@@ -44,6 +44,7 @@ void settings() {
 
 // Program launch setup
 void setup() {
+  surface.setTitle("FEVERBEAMS ALPHA");
   if (doExit) {
     exit(); // Exit the program if the settings dialog was canceled
   }

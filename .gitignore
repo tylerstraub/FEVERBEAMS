@@ -13,3 +13,5 @@ out
 windows-amd64/source/
 windows-amd64/lib/
 windows-amd64/java/
+# Ignore specific directories under macos-aarch64
+macos-aarch64/source/
