@@ -1,6 +1,15 @@
 OscP5 oscP5;
 NetAddress remoteLocation;
 
+// Variables to hold the current RGB values for presetColor and multiColorclr
+int presetColorR = 0;
+int presetColorG = 0;
+int presetColorB = 255;
+
+int multiColorclrR = 255;
+int multiColorclrG = 255;
+int multiColorclrB = 255;
+
 void oscSetup() {
   oscP5 = new OscP5(this, 42069);
   remoteLocation = new NetAddress("127.0.0.1", 42069);
@@ -33,19 +42,24 @@ void oscEvent(OscMessage theOscMessage) {
 }
 
 void handleColorChange(OscMessage theOscMessage, String addrPattern, String colorType) {
-  int r = 0, g = 0, b = 0;
-  if (addrPattern.endsWith("/r")) {
-    r = theOscMessage.get(0).intValue();
-  } else if (addrPattern.endsWith("/g")) {
-    g = theOscMessage.get(0).intValue();
-  } else if (addrPattern.endsWith("/b")) {
-    b = theOscMessage.get(0).intValue();
-  }
-
   if (colorType.equals("presetColor")) {
-    presetColor = color(r, g, b);
+    if (addrPattern.endsWith("/r")) {
+      presetColorR = theOscMessage.get(0).intValue();
+    } else if (addrPattern.endsWith("/g")) {
+      presetColorG = theOscMessage.get(0).intValue();
+    } else if (addrPattern.endsWith("/b")) {
+      presetColorB = theOscMessage.get(0).intValue();
+    }
+    presetColor = color(presetColorR, presetColorG, presetColorB);
   } else if (colorType.equals("multiColorclr")) {
-    multiColorclr = color(r, g, b);
+    if (addrPattern.endsWith("/r")) {
+      multiColorclrR = theOscMessage.get(0).intValue();
+    } else if (addrPattern.endsWith("/g")) {
+      multiColorclrG = theOscMessage.get(0).intValue();
+    } else if (addrPattern.endsWith("/b")) {
+      multiColorclrB = theOscMessage.get(0).intValue();
+    }
+    multiColorclr = color(multiColorclrR, multiColorclrG, multiColorclrB);
   }
 }
 
