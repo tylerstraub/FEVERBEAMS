@@ -277,8 +277,8 @@ public void effect15() {
   noStroke();
   translate(width / 2, height / 2);
   float angleStep = TWO_PI / 20;
-  float maxRadius = 200;
-  float minRadius = 50;
+  float maxRadius = 200 * (presetSize / 100.0);
+  float minRadius = 50 * (presetSize / 100.0);
 
   for (float angle = 0; angle < TWO_PI; angle += angleStep) {
     float innerRadius = minRadius + sin(v + angle) * 20;
@@ -292,10 +292,11 @@ public void effect15() {
         fill(
           map(r, innerRadius, outerRadius, 0, 255),
           map(r, innerRadius, outerRadius, 255, 0),
-          map(sin(angle + v), -1, 1, 0, 255)
-          );
+          map(sin(angle + v), -1, 1, 0, 255),
+          presetBrightness * 255 / 100
+        );
       } else {
-        fill(map(r, innerRadius, outerRadius, 0, 255), 255 - map(r, innerRadius, outerRadius, 0, 255), 150);
+        fill(presetColor, presetBrightness * 255 / 100);
       }
 
       ellipse(x, y, 10, 10);

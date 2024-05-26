@@ -22,6 +22,7 @@ float[] ranX = new float[1001];
 float[] ranY = new float[1001];
 float m;
 
+// Program settings dialogue pop up
 Settings settings;
 boolean doExit = false;
 
@@ -39,6 +40,7 @@ void settings() {
   }
 }
 
+// Program launch setup
 void setup() {
   if (doExit) {
     exit(); // Exit the program if the settings dialog was canceled
