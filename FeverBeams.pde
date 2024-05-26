@@ -13,6 +13,8 @@ int presetSpeed = 30;
 int presetNumber = 0;
 boolean multiColor = true;
 int multiColorclr = color(255, 255, 255);
+int shadeAmount = 0;
+int presetStrobing = 0;
 
 // Scene Globals for Effects
 float v = 0;
@@ -66,11 +68,16 @@ void setup() {
 
 // Primary draw loop
 void draw() {
-  background(0);
-  pushMatrix();  // Save the current transformation matrix
-  setStrokeAndFill();  // Ensure stroke and fill are set before drawing
-  invokeEffectMethod("effect" + presetNumber);
-  popMatrix();   // Restore the previous transformation matrix
+  fill(0, map(shadeAmount, 0, 100, 255, 10));
+  noStroke();
+  rect(0, 0, width, height);
+
+  if (presetStrobing == 0 || frameCount % (int(map(presetStrobing, 1, 100, 30, 1))) == 0) {
+    pushMatrix();
+    setStrokeAndFill();
+    invokeEffectMethod("effect" + presetNumber);
+    popMatrix();
+  }
 }
 
 // Utility functions for stroke and fill
