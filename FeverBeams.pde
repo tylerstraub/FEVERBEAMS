@@ -23,10 +23,15 @@ float[] ranY = new float[1001];
 float m;
 
 Settings settings;
+boolean doExit = false;
 
 void settings() {
   settings = new Settings();
   settings.getUserInput();
+  if (!settings.settingsGathered) {
+    doExit = true; // Set the flag to true if settings are not gathered
+    return;
+  }
   if (settings.windowedMode) {
     size(settings.frameSizeX, settings.frameSizeY);
   } else {
@@ -35,6 +40,9 @@ void settings() {
 }
 
 void setup() {
+  if (doExit) {
+    exit(); // Exit the program if the settings dialog was canceled
+  }
   if (!settings.windowedMode) {
     surface.setSize(settings.frameSizeX, settings.frameSizeY); // Ensure the size is set correctly after fullScreen
   }

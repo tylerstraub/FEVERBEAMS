@@ -10,6 +10,7 @@ class Settings {
   int osc_port;
   int frameRate;
   boolean windowedMode;
+  boolean settingsGathered;
 
   Settings() {
     this.frameSizeX = DEFAULT_FRAME_WIDTH;
@@ -18,6 +19,7 @@ class Settings {
     this.osc_port = OSC_PORT;
     this.frameRate = DEFAULT_FRAME_RATE;
     this.windowedMode = false;
+    this.settingsGathered = false;
   }
 
   void getUserInput() {
@@ -50,6 +52,7 @@ class Settings {
       frameSizeY = parseOrDefault(heightField.getText(), screen.getDisplayMode().getHeight());
       frameRate = parseOrDefault(frameRateField.getText(), DEFAULT_FRAME_RATE);
       windowedMode = windowedModeCheckBox.isSelected();
+      settingsGathered = true;
     } else {
       setDefaultValues();
     }
