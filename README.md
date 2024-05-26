@@ -1,8 +1,6 @@
 # FeverBeams
  DOING SCIENCE
 
-Certainly! Here's the documentation for the OSC interface for your FeverBeams application:
-
 ## OSC Interface Documentation
 
 ### Overview
